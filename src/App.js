@@ -57,7 +57,7 @@ function Loaded({
         solved().won ?
           (
             <>
-              <p>You Won!!!</p>
+              <p>You Won!!! and the gussed word is: {word}</p>
               <p><button onClick={() => resetGame()}>Play again!</button></p>
               <img src={require(`./images/hangman/win.png`)} />
             </>
