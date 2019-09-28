@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e8eacfa6073bf427594064a1d05af8bb",
+    "revision": "1bc70af5021a91248bd3c2eceb0654fd",
     "url": "/hangman-guessing-word/index.html"
   },
   {
