@@ -1,8 +1,8 @@
 {
+  "homepage": "http://zougheb.github.io/hangman-guessing-word",
   "name": "hangman-guessing-word",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://zougheb.github.io/hangman-guessing-word",
   "dependencies": {
     "@use-it/event-listener": "^0.1.3",
     "gh-pages": "^2.1.1",
