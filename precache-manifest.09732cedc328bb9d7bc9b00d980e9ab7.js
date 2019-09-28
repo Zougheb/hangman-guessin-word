@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f4e7423c6bddba5292173303735c6c69",
+    "revision": "e8eacfa6073bf427594064a1d05af8bb",
     "url": "/hangman-guessing-word/index.html"
   },
   {
-    "revision": "887afeb0faf06531a3fd",
+    "revision": "639231e540816875db60",
     "url": "/hangman-guessing-word/static/css/main.0b2d2082.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hangman-guessing-word/static/js/2.3a5e3c5b.chunk.js"
   },
   {
-    "revision": "887afeb0faf06531a3fd",
-    "url": "/hangman-guessing-word/static/js/main.3b792524.chunk.js"
+    "revision": "639231e540816875db60",
+    "url": "/hangman-guessing-word/static/js/main.0c93904b.chunk.js"
   },
   {
     "revision": "804bbcdcce5eade9d069",
