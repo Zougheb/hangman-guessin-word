@@ -1,6 +1,6 @@
 A guessing word game (Hangman) built with React Hooks.
 
-The user will be asked to type a letter or a word to guess the write word.
+The user will be asked to type a letter or a word to guess the right word.
 
 To run this project locally on your machine:-
 
