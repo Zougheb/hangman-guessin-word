@@ -29,20 +29,6 @@ export default function Game({
         word={word}
       />
     </p>
-
-     {/* {
-      !solved()
-        ? (<p>You Lost!</p>)
-        : (<div>
-            Incorrect guesses :
-            <div className="WrongLetters">
-              {incorrect}
-            </div>
-        </div>)        
-    } */}
-      
-    {/* <SubmitGuess
-      guessLetter={guessLetter} /> */}
    
     <p>
         Incorrect guesses :
