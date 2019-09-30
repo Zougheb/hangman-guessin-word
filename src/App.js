@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
-
 import './App.css'
-
 import _ from 'lodash'
-
-import Game from './components/game'
-
-// import words from './words'
-
+import Loaded from './components/load-game'
 import { randomWord } from './words'
-
+// import Game from './components/game'
+// import words from './words'
 
 
 // Array.prototype.sample = function () {
@@ -17,69 +12,17 @@ import { randomWord } from './words'
 // }
 
 
-const defaultState = {
-  word: "",
-  correct: [],
-  incorrect: []
-}
 
-function Loaded({
-  wins,
-  losses,
-  word,
-  correct,
-  incorrect,
-  solved,
-  guessesRemaining,
-  resetGame,
-  guessLetter
-}) {
-  return <div>
-    <h1 className="hangman">Hangman</h1>
-    <br />
-    {/* Enable the line below to be able to see the word */}
-    {/* <p>{word}</p> */}
 
-    <p>
-      wins: {wins} / losses: {losses}
-    </p>
 
-    <p>Guesses Remaining :{guessesRemaining()}</p>
-    {
-      !solved().solved
-        ? <div>
+export default function App() {
 
-          <Game
-            word={word}
-            correct={correct}
-            incorrect={incorrect}
-            guessLetter={guessLetter}
-            solved={solved}
+  const defaultState = {
+    word: "",
+    correct: [],
+    incorrect: []
+  }
 
-          />
-          <img src={require(`./images/hangman/${guessesRemaining()}.png`)} />
-          <h5>type any letter or word...!!!!!</h5>
-        </div>
-        :
-        solved().won ?
-          (
-            <>
-              <p>You Won!!! and the gussed word is: "{word}" </p>
-              <p><button onClick={() => resetGame()}>Play again!</button></p>
-              <img src={require(`./images/hangman/win.png`)} alt="You Won" />
-            </>
-          )
-          :
-          <div>
-            <p>You lost! and the word was : "{word}"</p>
-            <p><button onClick={() => resetGame()}>Play again!</button></p>
-            <img src={require(`./images/hangman/${guessesRemaining()}.png`)} />
-          </div>
-    }
-  </div>
-}
-
-export default function App({}) {
   const [state, setState] = useState(defaultState)
   const [wins, setWins] = useState(0)
   const [losses, setLosses] = useState(0)
@@ -89,10 +32,10 @@ export default function App({}) {
   useEffect(() => {
     console.dir(state)
     if (solved()) {
-      if (word.length > 0 && won()) setWins(prevState => prevState + 1)
-      if (lost()) setLosses(prevState => prevState + 1)
+      if (word.length > 0 && won()) setWins(wins + 1)
+      if (lost()) setLosses(losses + 1)
     }
-  }, [state], [solved], [won], [lost])
+  }, [state])
 
   useEffect(() => {
     loadGame()
@@ -109,7 +52,7 @@ export default function App({}) {
       }).then(words => {
         setState(prevState => ({
           ...prevState,
-          word: randomWord().toLowerCase()
+          word: words.toLowerCase()
         }))
         setLoaded(true)
       }).catch(() => {
@@ -165,23 +108,23 @@ export default function App({}) {
       _.uniq(ignoreSpaces(word.split(""))).length !== _.uniq(correct).length
   }
 
-  return <div className="App">
-
-    {
-      !loaded
-        ? null
-        : <Loaded
-          word={word}
-          correct={correct}
-          incorrect={incorrect}
-          solved={solved}
-          guessesRemaining={guessesRemaining}
-          resetGame={resetGame}
-          guessLetter={guessLetter}
-          wins={wins}
-          losses={losses}
-        />
-    }
-
-  </div>
+  return(
+          <div className="App">
+            {
+              !loaded
+                ? null
+                : <Loaded
+                  word={word}
+                  correct={correct}
+                  incorrect={incorrect}
+                  solved={solved}
+                  guessesRemaining={guessesRemaining}
+                  resetGame={resetGame}
+                  guessLetter={guessLetter}
+                  wins={wins}
+                  losses={losses}
+                />
+            }
+          </div>
+        ) 
 }
