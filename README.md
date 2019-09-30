@@ -1,3 +1,24 @@
+A guessing word game (Hangman) built with React Hooks.
+
+The user will be asked to type a letter or a word to guess the write word.
+
+To run this project locally on your machine:-
+
+### `git clone https://github.com/Zougheb/hangman-guessing-word.git`
+
+Then run:
+### `npm install`
+or
+### `yarn`
+
+After you run "npm install" or "yarn"
+
+run:
+
+### `npm start` or `yarn start`
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
