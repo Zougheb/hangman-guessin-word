@@ -36,7 +36,7 @@ function Loaded({
 }) {
   return <div>
     <h1 className="hangman">Hangman</h1>
-
+    <br />
     {/* Enable the line below to be able to see the word */}
     {/* <p>{word}</p> */}
 
