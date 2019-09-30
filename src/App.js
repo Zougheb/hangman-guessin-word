@@ -38,7 +38,7 @@ function Loaded({
     <h1 className="hangman">Hangman</h1>
 
     {/* Enable the line below to be able to see the word */}
-    <p>{word}</p>
+    {/* <p>{word}</p> */}
 
     <p>
       wins: {wins} / losses: {losses}
