@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hangman-guessing-word/static/css/main.0b2d2082.chunk.css",
-    "main.js": "/hangman-guessing-word/static/js/main.0c93904b.chunk.js",
-    "main.js.map": "/hangman-guessing-word/static/js/main.0c93904b.chunk.js.map",
+    "main.js": "/hangman-guessing-word/static/js/main.10dbadc3.chunk.js",
+    "main.js.map": "/hangman-guessing-word/static/js/main.10dbadc3.chunk.js.map",
     "runtime-main.js": "/hangman-guessing-word/static/js/runtime-main.cb1bcd7d.js",
     "runtime-main.js.map": "/hangman-guessing-word/static/js/runtime-main.cb1bcd7d.js.map",
     "static/js/2.3a5e3c5b.chunk.js": "/hangman-guessing-word/static/js/2.3a5e3c5b.chunk.js",
     "static/js/2.3a5e3c5b.chunk.js.map": "/hangman-guessing-word/static/js/2.3a5e3c5b.chunk.js.map",
     "index.html": "/hangman-guessing-word/index.html",
-    "precache-manifest.58251447e6e68f66d3837680a27efd1f.js": "/hangman-guessing-word/precache-manifest.58251447e6e68f66d3837680a27efd1f.js",
+    "precache-manifest.b68a8f88e1aaf1789e16f0f0ba87d060.js": "/hangman-guessing-word/precache-manifest.b68a8f88e1aaf1789e16f0f0ba87d060.js",
     "service-worker.js": "/hangman-guessing-word/service-worker.js",
     "static/css/main.0b2d2082.chunk.css.map": "/hangman-guessing-word/static/css/main.0b2d2082.chunk.css.map",
     "static/media/0.png": "/hangman-guessing-word/static/media/0.d584fd82.png",
