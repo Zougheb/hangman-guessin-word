@@ -11,8 +11,4 @@ const words = [
 "test 123"
 ]
 
-function randomWord() {
-  return words[Math.floor(Math.random() * words.length)]
-}
-
-export { randomWord }
+export default words

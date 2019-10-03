@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import _ from 'lodash'
 import Loaded from './components/load-game'
-import { randomWord } from './words'
-// import Game from './components/game'
-// import words from './words'
-
-
-// Array.prototype.sample = function () {
-//   return this[Math.floor(Math.random() * this.length)]
-// }
+import words from './words'
 
 
 
@@ -27,6 +20,9 @@ export default function App() {
   const [wins, setWins] = useState(0)
   const [losses, setLosses] = useState(0)
   const [loaded, setLoaded] = useState(false)
+  const [difficulty, setDifficulty]= useState("easy")
+  
+  /* destructure the values from the state */
   const { word, correct, incorrect } = state
 
   useEffect(() => {
@@ -38,33 +34,33 @@ export default function App() {
   }, [state])
 
   useEffect(() => {
-    loadGame()
-  }, [])
+    resetGame()
+  }, [difficulty])
+
+  function randomWord() {
+    const selectedWords = wordsByDifficulty(words)
+    return selectedWords[Math.floor(Math.random() * selectedWords.length)]
+  }
+
+  function wordsByDifficulty(words) {
+    return words.filter(word => difficulty === "easy"
+      ? word.length <= 5
+      : word.length > 5 )
+  }
 
 // ================================================================================
   // Here I tried to fetch the data using the provided url
   // but i got "Cors" issues so i come up with an array of data
   // and start using it to build the game
   function loadGame() {
-    fetch("http://app.linkedin-reach.io/words")
-      .then(response => {
-        response.text()
-      }).then(words => {
         setState(prevState => ({
           ...prevState,
-          word: words.toLowerCase()
-        }))
-        setLoaded(true)
-      }).catch(() => {
-        setState(prevState => ({
-          ...prevState,
-          // word: words.sample().toLowerCase()
           word: randomWord().toLowerCase()
         }))
         setLoaded(true)
-      })
   }
 // ==================================================================================
+
   function guessesRemaining() {
     return 6 - incorrect.length
   }
@@ -88,11 +84,7 @@ export default function App() {
   }
 
   function solved() {
-    return {
-      'solved': won() || lost(),
-      'won': won(),
-      'lost': lost()
-    }
+    return won() || lost()
   }
 
   function ignoreSpaces(letters) {
@@ -110,6 +102,7 @@ export default function App() {
 
   return(
           <div className="App">
+
             {
               !loaded
                 ? null
@@ -118,11 +111,14 @@ export default function App() {
                   correct={correct}
                   incorrect={incorrect}
                   solved={solved}
+                  won={won}
                   guessesRemaining={guessesRemaining}
                   resetGame={resetGame}
                   guessLetter={guessLetter}
                   wins={wins}
                   losses={losses}
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
                 />
             }
           </div>

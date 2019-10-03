@@ -10,25 +10,50 @@ export default function Loaded({
   correct,
   incorrect,
   solved,
+  won,
   guessesRemaining,
   resetGame,
-  guessLetter
+  guessLetter,
+  difficulty,
+  setDifficulty
 }) {
   return(
   <div>
     <h1 className="hangman">Hangman</h1>
     <br />
-    {/* Enable the line below to be able to see the word */}
-    {/* <p>{word}</p> */}
+     {/* Enable the below line if you want to see the word */}
+     {/* <p>{word}</p> */}
+      {
+        solved()
+        ? null
+        : <h5>type any letter or word...!!!!!</h5>
+      }
+
+      <label>
+        <input type="radio" name="difficulty" value="easy"
+          onChange={() => setDifficulty("easy")}
+          defaultChecked={difficulty === "easy"}
+        /> Easy
+      </label>
+
+      <label>
+        <input type="radio" name="difficulty" value="hard"
+          onChange={() => setDifficulty("hard")}
+          defaultChecked={difficulty === "hard"}
+        /> Hard
+      </label>
 
     <p>
       wins: {wins} / losses: {losses}
     </p>
 
+     
+
     <p>Guesses Remaining :{guessesRemaining()}</p>
     {
-      !solved().solved
+      !solved()
         ? <div>
+            
           <Game
             word={word}
             correct={correct}
@@ -37,10 +62,10 @@ export default function Loaded({
             solved={solved}
           />
           <img src={require(`../../images/hangman/${guessesRemaining()}.png`)} alt="" />
-          <h5>type any letter or word...!!!!!</h5>
+          
         </div>
         :
-        solved().won ?
+        won() ?
           (
             <>
               <p>You Won!!! and the gussed word is: "{word}" </p>
